@@ -1,0 +1,97 @@
+.sort_templates__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  z-index: 20;
+  background: #fff;
+  transform: translateX(300px);
+  transition: .4s; }
+  .sort_templates__wrapper--active {
+    transform: translateX(0); }
+.sort_templates__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: #3498db;
+  outline: none;
+  color: #fff;
+  transform: translateX(-40px);
+  transition: .2s ease-in-out .2s; }
+  .sort_templates__toggle--active {
+    transform: translateX(0); }
+
+.sortSections {
+  width: calc(100vw - 300px);
+  transition: .2s; }
+  .sortSections--full {
+    width: 100vw; }
+
+#sortSections {
+  outline: none;
+  min-height: 100px; }
+  #sortSections .drag-handle {
+    font: bold 20px Sans-Serif;
+    color: #5F9EDF;
+    display: flex;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background: rgba(52, 152, 219, 0.1);
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+    cursor: -webkit-grabbing;
+    z-index: 3;
+    transition: .2s; }
+    #sortSections .drag-handle:hover {
+      background: #3498db;
+      color: #fff; }
+  #sortSections .delete_section {
+    font: bold 20px Sans-Serif;
+    display: flex;
+    position: absolute;
+    top: 40px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: .2s;
+    color: #d22;
+    background: rgba(221, 34, 34, 0.1);
+    right: 0; }
+    #sortSections .delete_section:hover {
+      background: #d22;
+      color: #fff;
+      cursor: pointer; }
+
+.sorlTemplate {
+  position: relative; }
+
+.editable {
+  outline: none; }
+
+#sortable {
+  height: 150px;
+  background: #f6f6f6; }
+
+.sortable-ghost {
+  opacity: .7;
+  background: #fff46a; }
+
+.zoomOutUp {
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s; }
+
+/*# sourceMappingURL=main.css.map */

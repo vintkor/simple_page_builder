@@ -1,0 +1,121 @@
+$dark-color: #000;
+$main-color: #3498db;
+$white-color: #fff;
+$danger-color: #d22;
+
+$sort_templates_width: 300px;
+
+.sort_templates {
+    &__wrapper {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: $sort_templates_width;
+        box-shadow: 0 0 25px rgba($dark-color, .05);
+        z-index: 20;
+        background: $white-color;
+        transform: translateX($sort_templates_width);
+        transition: .4s;
+        &--active {
+            transform: translateX(0);
+        }
+    }
+    &__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 40px;
+        border: none;
+        background: $main-color;
+        outline: none;
+        color: $white-color;
+        transform: translateX(-40px);
+        transition: .2s ease-in-out .2s;
+        &--active {
+            transform: translateX(0);
+        }
+    }
+}
+
+.sortSections {
+    width: calc(100vw - #{$sort_templates_width});
+    transition: .2s;
+    &--full {
+        width: 100vw;
+    }
+}
+
+#sortSections {
+    outline: none;
+    min-height: 100px;
+    .drag-handle {
+        font: bold 20px Sans-Serif;
+        color: #5F9EDF;
+        display: flex;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        width: 40px;
+        height: 40px;
+        background: rgba($main-color, .1);
+        align-items: center;
+        justify-content: center;
+        cursor: move;
+        cursor: -webkit-grabbing;
+        z-index: 3;
+        transition: .2s;
+        &:hover {
+            background: $main-color;
+            color: $white-color;
+        }
+    }
+    .delete_section {
+        font: bold 20px Sans-Serif;
+        display: flex;
+        position: absolute;
+        top: 40px;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+        transition: .2s;
+        color: $danger-color;
+        background: rgba($danger-color, .1);
+        right: 0;
+        &:hover {
+            background: $danger-color;
+            color: $white-color;
+            cursor: pointer;
+        }
+    }
+}
+
+.sorlTemplate {
+    position: relative;
+}
+
+.editable {
+    outline: none;
+}
+
+
+#sortable {
+    height: 150px;
+    background: #f6f6f6;
+}
+
+.sortable-ghost {
+    opacity: .7;
+    background: #fff46a;
+}
+
+.zoomOutUp {
+    -webkit-animation-name: slideOutLeft;
+    animation-name: slideOutLeft;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+}

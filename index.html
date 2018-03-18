@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vintkor sortable demo</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/Sortable/Sortable.min.js"></script>
+
+    <script src="bower_components/medium-editor/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="bower_components/medium-editor/dist/css/medium-editor.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.2/css/themes/flat.css">
+
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/templates.css">
+</head>
+
+<body>
+<div class="sort_templates__wrapper">
+    <div class="sort_templates__header">
+        <button class="sort_templates__toggle">Hide</button>
+    </div>
+    <div id="sortTemplates" class="sort_templates">
+        <div data-block="sort_block_1" class="sorlTemplate sort_block_1"><img class="drag-handle" src="http://via.placeholder.com/300x150"></div>
+        <div data-block="sort_block_2" class="sorlTemplate sort_block_2"><img class="drag-handle" src="http://via.placeholder.com/300x150"></div>
+    </div>
+</div>
+
+<div id="sortSections" class="sortSections sortSections--full"></div>
+
+<!-- templates -->
+<div class="hidden">
+    <section id="sort_block_1">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);"><i class="fa fa-trash"></i></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="sort_block_1__title text-center editable">I am first header</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_2">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);"><i class="fa fa-trash"></i></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="sort_block_2__title text-center editable">I am second header</h2>
+                </div>
+                <div class="col-sm-6">
+                    <img src="http://via.placeholder.com/600x400" class="img-responsive sort_block_2__image">
+                </div>
+                <div class="col-sm-6">
+                    <p class="editable">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod nulla a enim aliquam rutrum. In tempus interdum risus. Vestibulum auctor ultrices nisi, sit amet venenatis lectus viverra nec. Nam non feugiat lacus. Sed gravida non purus a consequat. Fusce ligula purus, mattis ac dictum eget, pellentesque ut ante. Proin venenatis enim non accumsan hendrerit. Suspendisse posuere dui eget malesuada fermentum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+
+</html>
