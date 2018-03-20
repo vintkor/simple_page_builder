@@ -19,6 +19,7 @@
     "jquery": "^3.3.1",
     "bootstrap": "^3.3.7",
     "animate.css": "^3.5.2",
-    "medium-editor": "^5.23.3"
+    "medium-editor": "^5.23.3",
+    "sweetalert2": "^7.16.0"
   }
 }

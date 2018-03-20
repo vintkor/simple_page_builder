@@ -3,9 +3,18 @@ $main-color: #3498db;
 $white-color: #fff;
 $danger-color: #d22;
 
-$sort_templates_width: 300px;
+$sort_templates_width: 194px;
 
 .sort_templates {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    overflow: scroll;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     &__wrapper {
         position: fixed;
         top: 0;
@@ -22,6 +31,7 @@ $sort_templates_width: 300px;
         }
     }
     &__toggle {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -34,8 +44,33 @@ $sort_templates_width: 300px;
         color: $white-color;
         transform: translateX(-40px);
         transition: .2s ease-in-out .2s;
+        .fa {
+            transform: translateX(-62px);
+        } 
         &--active {
             transform: translateX(0);
+        }
+    }
+    .sorlTemplate {
+        position: relative;
+        &--hover {
+            &:after {
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba($dark-color, .2);
+            }
+        }
+    }
+    .drag-handle {
+        margin-bottom: 5px;
+        &:hover {
+            box-shadow: 0 0 5px rgba($dark-color, .2);
+            cursor: move;
         }
     }
 }
@@ -64,7 +99,6 @@ $sort_templates_width: 300px;
         align-items: center;
         justify-content: center;
         cursor: move;
-        cursor: -webkit-grabbing;
         z-index: 3;
         transition: .2s;
         &:hover {
@@ -89,6 +123,11 @@ $sort_templates_width: 300px;
         &:hover {
             background: $danger-color;
             color: $white-color;
+            cursor: pointer;
+        }
+    }
+    .editableImage {
+        &:hover {
             cursor: pointer;
         }
     }
@@ -118,4 +157,80 @@ $sort_templates_width: 300px;
     animation-name: slideOutLeft;
     -webkit-animation-duration: .4s;
     animation-duration: .4s;
+}
+
+
+/**
+ * FilePond Custom Styles
+ */
+.filepond--drop-label {
+	color: #4c4e53;
+}
+
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	background-color: #edf0f4;
+}
+
+.filepond--item-panel {
+	background-color: #595e68;
+}
+
+.filepond--drip-blob {
+	background-color: #7f8a9a;
+}
+
+.filepond {
+	width: 170px;
+	height: 170px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.filepond--root,
+.filepond--image-preview-wrapper {
+	border-radius: 9999px;
+}
+
+.filepond--list {
+	left: 0;
+	right: 0;
+}
+
+.filepond--drop-label {
+	bottom: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+}
+
+.filepond--file-info {
+	display: none;
+}
+
+.filepond--file-action-button {
+	display: none;
+}
+
+.filepond--image-preview-overlay {
+	display: none;
+}
+
+.filepond--item-panel {
+	display: none;
+}
+
+.filepond--file .filepond--action-remove-item {
+	display: block;
+	bottom: 1em;
+	left: calc(50% - 0.8125em);
+}
+
+.filepond--file .filepond--progress-indicator {
+	top: auto;
+	right: calc(50% - 0.625em);
+	bottom: 1.1875em;
 }

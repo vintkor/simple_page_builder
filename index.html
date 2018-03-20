@@ -6,24 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vintkor sortable demo</title>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/Sortable/Sortable.min.js"></script>
+    <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
+    <script src="js/vanilla-color-picker.js"></script>
+    <script src="js/font-awesome-icons.js"></script>
     <script src="bower_components/medium-editor/dist/js/medium-editor.min.js"></script>
     <link rel="stylesheet" href="bower_components/medium-editor/dist/css/medium-editor.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.2/css/themes/flat.css">
-
-    <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/templates.css">
+    <link rel="stylesheet" href="style/medium-flat.css">
+    <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
 </head>
 
 <body>
 <div class="sort_templates__wrapper">
     <div class="sort_templates__header">
-        <button class="sort_templates__toggle">Hide</button>
+        <button class="sort_templates__toggle">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            Hide
+        </button>
     </div>
     <div id="sortTemplates" class="sort_templates">
-        <div data-block="sort_block_1" class="sorlTemplate sort_block_1"><img class="drag-handle" src="http://via.placeholder.com/300x150"></div>
-        <div data-block="sort_block_2" class="sorlTemplate sort_block_2"><img class="drag-handle" src="http://via.placeholder.com/300x150"></div>
+        <div data-block="sort_block_1" class="sorlTemplate sort_block_1"><img class="drag-handle" src="images/block_1.png"></div>
+        <div data-block="sort_block_2" class="sorlTemplate sort_block_2"><img class="drag-handle" src="images/block_2.png"></div>
+        <div data-block="sort_block_3" class="sorlTemplate sort_block_3"><img class="drag-handle" src="images/block_3.png"></div>
+        <div data-block="sort_block_4" class="sorlTemplate sort_block_4"><img class="drag-handle" src="images/block_4.png"></div>
+        <div data-block="sort_block_5" class="sorlTemplate sort_block_5"><img class="drag-handle" src="images/block_5.png"></div>
+        <div data-block="sort_block_6" class="sorlTemplate sort_block_6"><img class="drag-handle" src="images/block_6.png"></div>
+        <div data-block="sort_block_7" class="sorlTemplate sort_block_7"><img class="drag-handle" src="images/block_7.png"></div>
+        <div data-block="sort_block_8" class="sorlTemplate sort_block_8"><img class="drag-handle" src="images/block_8.png"></div>
+        <div data-block="sort_block_9" class="sorlTemplate sort_block_9"><img class="drag-handle" src="images/block_9.png"></div>
+        <div data-block="sort_block_10" class="sorlTemplate sort_block_10"><img class="drag-handle" src="images/block_10.png"></div>
     </div>
 </div>
 
@@ -31,13 +44,14 @@
 
 <!-- templates -->
 <div class="hidden">
+
     <section id="sort_block_1">
         <span class="drag-handle">☰</span>
         <span class="delete_section" ondblclick="deleteItem(this);"><i class="fa fa-trash"></i></span>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="sort_block_1__title text-center editable">I am first header</h1>
+                <div class="col-sm-12 col-md-8 col-sm-offset-0 col-md-offset-2">
+                    <h1 class="sort_block_1__title text-center editable">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING INDUSTRY</h1>
                 </div>
             </div>
         </div>
@@ -49,25 +63,231 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="sort_block_2__title text-center editable">I am second header</h2>
-                </div>
-                <div class="col-sm-6">
-                    <img src="http://via.placeholder.com/600x400" class="img-responsive sort_block_2__image">
-                </div>
-                <div class="col-sm-6">
-                    <p class="editable">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod nulla a enim aliquam rutrum. In tempus interdum risus. Vestibulum auctor ultrices nisi, sit amet venenatis lectus viverra nec. Nam non feugiat lacus. Sed gravida non purus a consequat. Fusce ligula purus, mattis ac dictum eget, pellentesque ut ante. Proin venenatis enim non accumsan hendrerit. Suspendisse posuere dui eget malesuada fermentum.
+                    <p class="editable sort_block_2__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="sort_block_3">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h2 class="editable sort_block_3__title">Lorem Ipsum</h2>
+                    <p class="editable sort_block_3__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur
+                        sit amet vulputate vel, dapibus sit amet lectus.
+                    </p>
+                </div>
+                <div class="col-sm-7">
+                    <img src="images/placeholders/block_3_1.jpg" class="editableImage sort_block_3__image img-responsive">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_4">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <img src="images/placeholders/block_3_1.jpg" class="sort_block_4__image img-responsive editableImage">
+                </div>
+                <div class="col-sm-5">
+                    <h2 class="editable sort_block_4__title">Lorem Ipsum</h2>
+                    <p class="editable sort_block_4__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur
+                        sit amet vulputate vel, dapibus sit amet lectus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_5">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr class="sort_block_5__divider">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_6">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <img src="images/placeholders/block_6_1.jpg" class="sort_block_6__image img-responsive img-circle editableImage">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="sort_block_6__title editable">LOREM IPSUM IS SIMPLY</h2>
+                    <h3 class="sort_block_6__subtitle editable">Lorem Ipsum is simply dummy text</h3>
+                </div>
+                <div class="col-md-12">
+                    <p class="sort_block_6__text editable">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_7">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="images/placeholders/block_3_1.jpg" class="sort_block_7__image img-responsive editableImage">
+                </div>
+                <div class="col-sm-6">
+                    <p class="editable sort_block_7__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur
+                        sit amet vulputate vel, dapibus sit amet lectus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_8">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="editable sort_block_8__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur
+                        sit amet vulputate vel, dapibus sit amet lectus.
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <img src="images/placeholders/block_3_1.jpg" class="sort_block_8__image img-responsive editableImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_9">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="images/placeholders/block_3_1.jpg" class="sort_block_9__image img-responsive editableImage">
+                    <br>
+                    <p class="editable sort_block_9__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="images/placeholders/block_3_1.jpg" class="sort_block_9__image img-responsive editableImage">
+                    <br>
+                    <p class="editable sort_block_9__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="images/placeholders/block_3_1.jpg" class="sort_block_9__image img-responsive editableImage">
+                    <br>
+                    <p class="editable sort_block_9__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sort_block_10">
+        <span class="drag-handle">☰</span>
+        <span class="delete_section" ondblclick="deleteItem(this);">
+            <i class="fa fa-trash"></i>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="sort_block_10__title editable">BEAUTIFUL CONTENT. RESPONSIVE.</h2>
+                    <h3 class="sort_block_10__subtitle editable">BEAUTIFUL CONTENT. RESPONSIVE.</h2>
+                    <div class="text-center">
+                        <a href="" class="editableLink btn btn-info">Link to resource</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
-<script type="text/javascript" src="js/main.js"></script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="imageUploaderForm" method="post" enctype="multipart/form-data" action="server.php">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="file" name="file" accept="image/png, image/jpeg, image/gif" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="saveImage" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800,800i&amp;subset=cyrillic-ext" rel="stylesheet">
+
+<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="style/templates.css">
+
+<script type="text/javascript" src="js/main.js"></script>
+
+
 </body>
 
 </html>

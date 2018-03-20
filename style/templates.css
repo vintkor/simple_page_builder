@@ -1,8 +1,79 @@
+h1, h2, h3, h4, h5, h6, p, span, div, a, li {
+  font-family: 'Open Sans', sans-serif; }
+
+#sortSections .btn {
+  padding: 15px 40px;
+  border-radius: 0;
+  font-size: 17px;
+  background: #1ead8e;
+  border: none;
+  outline: none; }
+  #sortSections .btn:hover {
+    background: #1b9c80; }
+
 .sHeader--light {
-  background: #f6f6f6; }
+  background: darken; }
 
 .sHeader--dark {
-  background: #260d00;
+  background: #000;
   color: #fff; }
+
+.sortSections .sort_block_1 {
+  padding: 30px 0; }
+  .sortSections .sort_block_1__title {
+    font-weight: 800;
+    font-size: 40px; }
+.sortSections .sort_block_2 {
+  padding: 30px 0; }
+  .sortSections .sort_block_2__text {
+    font-weight: 100;
+    font-size: 17px; }
+.sortSections .sort_block_9,
+.sortSections .sort_block_8,
+.sortSections .sort_block_7,
+.sortSections .sort_block_4,
+.sortSections .sort_block_3 {
+  padding: 30px 0; }
+  .sortSections .sort_block_9__title,
+  .sortSections .sort_block_8__title,
+  .sortSections .sort_block_7__title,
+  .sortSections .sort_block_4__title,
+  .sortSections .sort_block_3__title {
+    font-weight: 100;
+    font-size: 36px; }
+  .sortSections .sort_block_9__text,
+  .sortSections .sort_block_8__text,
+  .sortSections .sort_block_7__text,
+  .sortSections .sort_block_4__text,
+  .sortSections .sort_block_3__text {
+    font-weight: 100;
+    font-size: 17px; }
+.sortSections .sort_block_5 {
+  padding: 30px 0; }
+  .sortSections .sort_block_5__divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.2); }
+.sortSections .sort_block_10,
+.sortSections .sort_block_6 {
+  padding: 30px 0; }
+  .sortSections .sort_block_10__image,
+  .sortSections .sort_block_6__image {
+    display: block;
+    position: relative;
+    margin: 0 auto; }
+  .sortSections .sort_block_10__title,
+  .sortSections .sort_block_6__title {
+    font-weight: 800;
+    text-align: center;
+    margin: 30px 0; }
+  .sortSections .sort_block_10__subtitle,
+  .sortSections .sort_block_6__subtitle {
+    font-weight: 100;
+    text-align: center;
+    margin: 20px 0; }
+  .sortSections .sort_block_10__text,
+  .sortSections .sort_block_6__text {
+    font-weight: 100;
+    font-size: 17px;
+    text-align: center; }
 
 /*# sourceMappingURL=templates.css.map */
