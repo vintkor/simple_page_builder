@@ -1,51 +1,3 @@
-function deleteItem(el) {
-
-    swal({
-        title: 'Точно удалить?',
-        text: "Блок будет удалён безвозвратно!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d22',
-        confirmButtonText: 'Да, удалить!'
-    }).then((result) => {
-        if (result.value) {
-            $(el).parent('.sorlTemplate').addClass('animated zoomOut');
-            setTimeout(function () {
-                $(el).parent('.sorlTemplate').remove();
-            }, 1000);
-        }
-    })
-}
-
-function setMediumEditor() {
-    var elements = document.querySelectorAll('.editable'),
-        editor = new MediumEditor('#sortSections .editable', {
-            buttonLabels: 'fontawesome',
-            toolbar: {
-                buttons: [
-                    'bold',
-                    'italic',
-                    'underline',
-                    'justifyLeft',
-                    'justifyCenter',
-                    'justifyRight',
-                    'justifyFull',
-                    'colorPicker'
-                    // 'table'
-                    // 'unorderedlist',
-                    // 'orderedlist',
-                    // 'image',
-                    // 'html'
-                    // 'removeFormat'
-                ]
-            },
-            extensions: {
-                'colorPicker': new ColorPickerExtension()
-            }
-        });
-}
-
 /**
  * Custom `color picker` extension
  */
@@ -108,6 +60,96 @@ var ColorPickerExtension = MediumEditor.Extension.extend({
         }.bind(this));
     }
 });
+
+var editorStore = [];
+
+function setMediumEditor() {
+    var elements = document.querySelectorAll('.editable'),
+        editor = new MediumEditor('#sortSections .editable', {
+            buttonLabels: 'fontawesome',
+            toolbar: {
+                buttons: [
+                    'bold',
+                    'italic',
+                    'underline',
+                    'justifyLeft',
+                    'justifyCenter',
+                    'justifyRight',
+                    'justifyFull',
+                    'colorPicker'
+                ]
+            },
+            extensions: {
+                'colorPicker': new ColorPickerExtension()
+            }
+        });
+    editorStore.push(editor);
+}
+
+setMediumEditor();
+
+$(document).ready(function () {
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    function sameOrigin(url) {
+        var host = document.location.host; // host + port
+        var protocol = document.location.protocol;
+        var sr_origin = '//' + host;
+        var origin = protocol + sr_origin;
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+            !(/^(\/\/|http:|https:).*/.test(url));
+    }
+
+    var csrftoken = getCookie('csrftoken');
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+});
+
+
+function deleteItem(el) {
+
+    swal({
+        title: 'Точно удалить?',
+        text: "Блок будет удалён безвозвратно!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d22',
+        confirmButtonText: 'Да, удалить!'
+    }).then((result) => {
+        if (result.value) {
+            $(el).parent('.sorlTemplate').addClass('animated zoomOut');
+            setTimeout(function () {
+                $(el).parent('.sorlTemplate').remove();
+            }, 1000);
+        }
+    })
+}
 
 (function () {
 
@@ -242,6 +284,48 @@ var ColorPickerExtension = MediumEditor.Extension.extend({
 
     });
 
-    
+
+    $('#savePage').click(function (e) {
+        e.preventDefault();
+
+        var form = $('#savePageForm'),
+            textarea = form.find('textarea');
+        var userData = $('body').find('#sortSections');
+
+        for (var i=0; i < editorStore.length; i++) {
+            editorStore[i].destroy();
+        }
+        editorStore = [];
+
+        textarea.val($(userData).html());
+
+        $.ajax({
+            method: 'post',
+            dataType: 'json',
+            data: form.serialize(),
+            url: window.location.href,
+            success: function (data) {
+                if (data.status) {
+                    swal({
+                        title: 'Успех!',
+                        type: 'success',
+                        text: 'Страница успешно сохранена!'
+                    });
+                    setMediumEditor();
+                } else {
+                    swal({
+                        title: 'Ошибка!',
+                        type: 'error',
+                        text: 'Что-то пошло не так...'
+                    })
+                }
+                textarea.val('');
+            },
+            error: function(e) {
+                console.log(e)
+            }
+        });
+
+    });
 
 })();

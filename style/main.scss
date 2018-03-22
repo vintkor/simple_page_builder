@@ -2,6 +2,8 @@ $dark-color: #000;
 $main-color: #3498db;
 $white-color: #fff;
 $danger-color: #d22;
+$success-color: #3db86a;
+$primary-color: #a768f3;
 
 $sort_templates_width: 194px;
 
@@ -35,7 +37,6 @@ $sort_templates_width: 194px;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
         width: 100%;
         height: 40px;
         border: none;
@@ -45,7 +46,15 @@ $sort_templates_width: 194px;
         transform: translateX(-40px);
         transition: .2s ease-in-out .2s;
         .fa {
-            transform: translateX(-62px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            position: absolute;
+            //transform: translateX(-52px);
         } 
         &--active {
             transform: translateX(0);
@@ -160,77 +169,48 @@ $sort_templates_width: 194px;
 }
 
 
-/**
- * FilePond Custom Styles
- */
-.filepond--drop-label {
-	color: #4c4e53;
+.savePage {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: $success-color;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba($dark-color, 0);
+    transition: .2s;
+    color: $white-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 15px rgba($dark-color, .2);
+    }
 }
 
-.filepond--label-action {
-	text-decoration-color: #babdc0;
+.linkPage {
+    @extend .savePage;
+    background: $main-color;
+    bottom: 90px;
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration: none;
+        color: $white-color;
+    }
 }
 
-.filepond--panel-root {
-	background-color: #edf0f4;
+.linkHome {
+    @extend .linkPage;
+    bottom: 150px;
+    background: $primary-color;
 }
 
-.filepond--item-panel {
-	background-color: #595e68;
-}
-
-.filepond--drip-blob {
-	background-color: #7f8a9a;
-}
-
-.filepond {
-	width: 170px;
-	height: 170px;
-	padding: 0;
-	overflow: hidden;
-}
-
-.filepond--root,
-.filepond--image-preview-wrapper {
-	border-radius: 9999px;
-}
-
-.filepond--list {
-	left: 0;
-	right: 0;
-}
-
-.filepond--drop-label {
-	bottom: 0;
-	margin: 0;
-	display: flex;
-	align-items: center;
-}
-
-.filepond--file-info {
-	display: none;
-}
-
-.filepond--file-action-button {
-	display: none;
-}
-
-.filepond--image-preview-overlay {
-	display: none;
-}
-
-.filepond--item-panel {
-	display: none;
-}
-
-.filepond--file .filepond--action-remove-item {
-	display: block;
-	bottom: 1em;
-	left: calc(50% - 0.8125em);
-}
-
-.filepond--file .filepond--progress-indicator {
-	top: auto;
-	right: calc(50% - 0.625em);
-	bottom: 1.1875em;
+body.public-view #sortSections {
+    .delete_section,
+    .drag-handle {
+        display: none;
+    }
 }
